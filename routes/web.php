@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/eleves','\App\Http\Controllers\eleveController@index')->name("eleves.index");
+Route::post('/eleves','\App\Http\Controllers\eleveController@store')->name('eleves.store');
+Route::get('/eleves/{eleve}/edit','\App\Http\Controllers\eleveController@edit')->name('eleves.edit');
+Route::get('/eleves/create','\App\Http\Controllers\eleveController@create')->name('eleves.create');
+Route::delete('/eleves/{eleve}','\App\Http\Controllers\eleveController@destroy')->name('eleves.destroy');
+Route::patch('/eleves/{eleve}','\App\Http\Controllers\eleveController@update')->name('eleves.update');
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
